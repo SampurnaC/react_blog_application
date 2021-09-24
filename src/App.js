@@ -3,30 +3,43 @@ import {useEffect, useState} from 'react';
 import BlogList from './components/BlogList';
 
 function App() {
-  const[blogs, setBlog] = useState([
-    {title: "title1 title", description: "title1 description", id: 1},
-    {title: "title2 title", description: "title2 description", id: 2},
-    {title: "title3 title", description: "title3 description", id: 3}
-
-  ])
-
-  const [name, setName] = useState('Hari');
+  const[blogs, setBlogs] = useState(null)
+  const [pending, setPending] = useState(true);
+  const [error, setError] = useState(null);
 
   const handleDelete=(id)=>{
     const newBlogs=blogs.filter(blog => blog.id !== id)
-    setBlog(newBlogs)
+    setBlogs(newBlogs)
   }
   
   useEffect(()=>{
     console.log("useeffect ran");
-
-  },[name])
+    setTimeout(()=> {
+      fetch('http://localhost:8000/blogs')
+        .then(res=> {
+          if(!res.ok) {
+            throw Error('cannot fetch data for the resource');
+          }
+          return res.json();
+        })
+        .then(data => {
+          console.log(data);
+          setBlogs(data);
+          setPending(false);
+          setError(null);
+        })
+        .catch((err)=> {
+          setPending(false);
+          setError(err.message);
+        })
+    }, 1000)
+  },[])
 
   return (
     <div className="home">
-      <BlogList blogs={blogs} handleDelete={handleDelete}/>
-      {name}
-      <button onClick={()=> setName('Sita')}>Change Name</button>
+      {error && <div>{error}</div>}
+      {pending && <div>Loading...</div>}
+      {blogs && <BlogList blogs={blogs} handleDelete={handleDelete}/>}
     </div>
   );
 }
