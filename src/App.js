@@ -1,18 +1,24 @@
 import './App.css';
-import BlogList from './components/BlogList';
-import useFetch from './useFetch';
+import Navbar from './Navbar';
+import Home from './Home';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Create from './Create';
 
 function App() {
-  
-  const {data:blogs, pending, error} = useFetch('http://localhost:8000/blogs');
-  
-
   return (
-    <div className="home">
-      {error && <div>{error}</div>}
-      {pending && <div>Loading...</div>}
-      {blogs && <BlogList blogs={blogs} />}
-    </div>
+    <Router>
+      <div className="app">
+        <Navbar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/create">
+            <Create />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
