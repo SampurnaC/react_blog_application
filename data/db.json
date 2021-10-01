@@ -1,8 +1,8 @@
 {
   "blogs": [
-    {"title": "title1 title", "description": "title1 description", "id": 1},
-    {"title": "title2 title", "description": "title2 description", "id": 2},
-    {"title": "title3 title", "description": "title3 description", "id": 3}
+    {"title": "title1 title", "description": "title1 description", "id": 1, "author": "Sam"},
+    {"title": "title2 title", "description": "title2 description", "id": 2, "author": "Hari"},
+    {"title": "title3 title", "description": "title3 description", "id": 3, "author": "Sita"}
 
   ]
   
