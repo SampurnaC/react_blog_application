@@ -4,6 +4,8 @@ import { useState } from "react/cjs/react.development";
 const Create = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [author, setAuthor] = useState('');
+
   const history = useHistory();
   const createBlog=(e)=>{
     e.preventDefault();
@@ -25,10 +27,16 @@ const Create = () => {
         <input type="text" value={title} onChange={(e)=>setTitle(e.target.value)} />
         <label>Body:</label>
         <input type="text" value={description} onChange={(e)=>setDescription(e.target.value)} />
+        <label>Blog Author:</label>
+        <select value={author} onChange={(e)=>setAuthor(e.target.value)}>
+          <option value="Sampurna">Sampurna</option>
+          <option value="Santosh">Santosh</option>
+        </select>
         <button>Create Blog</button>
       </form>
       {title}
       {description}
+      {author}
     </div>
   );
 }
