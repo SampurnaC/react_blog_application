@@ -13,12 +13,14 @@ const BlogDetails = () => {
       history.push('/');
     })
   }
+  console.log(blog)
+
   return (
-    <div className="blog-details">
-      <h2>Blog Details {id} </h2>
+    <div className="blog-details container">
+      <h3>Blog Details </h3>
       {blog && (
         <div>
-          <h1>{blog.title}</h1>
+          <h1><u>{blog.title}</u></h1>
           <p>{blog.description}</p>
           <p>Written by: {blog.author}</p>
           <button onClick={deleteBlog}>Delete Blog</button>

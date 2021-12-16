@@ -6,9 +6,8 @@ import { useState } from 'react/cjs/react.development';
 const BlogList = ({blogs, handleDelete}) => {
   const[searchItem, setSearchItem] = useState('');
   return (
-    
     <div className="blog-list">
-      <input type="text" placeholder="Search..." value={searchItem} onChange={(e)=>{setSearchItem(e.target.value)}}/>
+      <input class="form-control-sm" type="text" placeholder="Search..." value={searchItem} onChange={(e)=>{setSearchItem(e.target.value)}} aria-label="Search"/>
       {blogs.filter((val)=>{
         if (searchItem==""){
           return val;
@@ -19,9 +18,10 @@ const BlogList = ({blogs, handleDelete}) => {
       }).map((blog)=>(
         <div className="blog" key={blog.title}>
           <Link to={`/blogs/${blog.id}`}>
-            <h1>{blog.title}</h1>
-            <h3>{blog.description}</h3>
+            <h3>{blog.title}</h3>
           </Link>
+          <hr />
+          <p>{blog.description}</p>
         </div>
       ))}
     </div>

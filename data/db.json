@@ -1,9 +1,22 @@
 {
   "blogs": [
-    {"title": "title1 title", "description": "title1 description", "id": 1, "author": "Sam"},
-    {"title": "title2 title", "description": "title2 description", "id": 2, "author": "Hari"},
-    {"title": "title3 title", "description": "title3 description", "id": 3, "author": "Sita"}
-
+    {
+      "title": "daily routine",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley",
+      "author": "Santosh",
+      "id": 2
+    },
+    {
+      "title": "my daily updates",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley",
+      "author": "Santosh",
+      "id": 3
+    },
+    {
+      "title": "new blog post",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley",
+      "author": "Santosh",
+      "id": 4
+    }
   ]
-  
 }
